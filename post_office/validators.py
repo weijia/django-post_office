@@ -1,7 +1,10 @@
 from django.core.exceptions import ValidationError
 from django.core.validators import validate_email
 from django.template import Template, TemplateSyntaxError
-from django.utils.encoding import force_text
+try:
+    from django.utils.encoding import force_text
+except ImportError:
+    from django.utils.encoding import force_unicode as force_text
 
 from .compat import text_type
 
